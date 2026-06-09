@@ -78,3 +78,29 @@ Benefits
 
 The backend serves as the intelligence layer of the system, connecting user requests, AI services, and database storage to create a complete automated assessment generation platform.
 
+backend/
+│
+├── app/
+│   ├── api/
+│   │   ├── questions.py
+│   │   ├── categories.py
+│   │   ├── ai_generation.py
+│   │   └── coding_questions.py
+│
+│   ├── services/
+│   │   ├── gemini_service.py
+│   │   ├── openai_service.py
+│   │   ├── question_service.py
+│   │   └── category_service.py
+│
+│   ├── models/
+│   │   ├── question.py
+│   │   ├── category.py
+│   │   ├── option.py
+│   │   └── test_case.py
+│
+│   ├── schemas/
+│   └── database/
+│
+└── main.py
+

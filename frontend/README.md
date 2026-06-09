@@ -56,3 +56,284 @@ Benefits
 
 The frontend acts as the bridge between users and AI-powered assessment generation services, making the overall system efficient, accessible, and easy to use.
 
+Project Architecture According to Your Database
+
++---------------------------------------------------+
+|                   Frontend                        |
+|            Next.js 16 + TypeScript                |
++---------------------------------------------------+
+                      |
+                      |
+                      ▼
++---------------------------------------------------+
+|                    FastAPI                        |
+|                  Python 3.12                      |
++---------------------------------------------------+
+                      |
+       --------------------------------
+       |              |              |
+       ▼              ▼              ▼
++-------------+ +-------------+ +-------------+
+| Question    | | Category    | | Assessment  |
+| Management  | | Management  | | Management  |
++-------------+ +-------------+ +-------------+
+                      |
+                      ▼
++---------------------------------------------------+
+|            ChatGPT / Gemini AI Engine             |
++---------------------------------------------------+
+                      |
+                      ▼
++---------------------------------------------------+
+|                PostgreSQL 17                      |
+|                                                   |
+| question                                          |
+| question_option                                   |
+| question_category                                 |
+| question_category_mapping                         |
+| question_test_case                                |
++---------------------------------------------------+
+
+Frontend Features Based On Your Database
+1. AI Question Generator
+
+Create a page:
+
+/questions/generate
+
+User Inputs:
+
+Question Title
+Question Type
+Difficulty Level
+Category
+Number of Questions
+Topic
+
+Example:
+
+Title:
+Machine Learning Basics
+
+Question Type:
+MCQ
+
+Difficulty:
+Medium
+
+Category:
+Artificial Intelligence
+
+AI generates:
+
+Question
+Options
+Correct Answer
+Explanation
+
+Stores in:
+
+question
+question_option
+2. Question Bank
+
+Create:
+
+/questions
+
+Features:
+
+Search Questions
+Filter by Difficulty
+Filter by Category
+Filter by Question Type
+
+Database:
+
+question
+question_category
+question_category_mapping
+3. Category Management
+
+Create:
+
+/categories
+
+Features:
+
+Computer Science
+│
+├── Data Structures
+├── Operating Systems
+├── AI
+└── DBMS
+
+Database:
+
+question_category
+
+Supports hierarchy because:
+
+parent_question_category_id
+
+already exists.
+
+4. Coding Question Management
+
+Your schema contains:
+
+coding_snippet
+question_test_case
+
+This means you can create coding assessments.
+
+Frontend:
+
+Question:
+Write a program to reverse a string.
+
+Starter Code:
+public class Main {
+
+}
+
+Test Cases:
+Input: hello
+Output: olleh
+
+Database:
+
+question
+question_test_case
+5. Descriptive Question Module
+
+Your schema already supports:
+
+descriptive_text
+descriptive_char_limit
+
+Frontend:
+
+Explain the concept of Normalization.
+
+Limit:
+500 words
+
+AI can generate:
+
+Question
+Answer Key
+Explanation
+
+Frontend Modules 
+frontend/
+│
+├── public/
+│   ├── images/
+│   ├── icons/
+│   └── logo.png
+│
+├── src/
+│   │
+│   ├── app/
+│   │   ├── page.tsx
+│   │   ├── layout.tsx
+│   │   ├── globals.css
+│   │   │
+│   │   ├── dashboard/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── questions/
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   ├── generate/
+│   │   │   │   └── page.tsx
+│   │   │   └── [id]/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── categories/
+│   │   │   ├── page.tsx
+│   │   │   └── create/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── coding-questions/
+│   │   │   ├── page.tsx
+│   │   │   └── generate/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── descriptive-questions/
+│   │   │   ├── page.tsx
+│   │   │   └── generate/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── assessments/
+│   │   │   ├── page.tsx
+│   │   │   ├── create/
+│   │   │   │   └── page.tsx
+│   │   │   └── [id]/
+│   │   │       └── page.tsx
+│   │   │
+│   │   └── settings/
+│   │       └── page.tsx
+│   │
+│   ├── components/
+│   │   │
+│   │   ├── common/
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── Sidebar.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Button.tsx
+│   │   │   └── Loader.tsx
+│   │   │
+│   │   ├── questions/
+│   │   │   ├── QuestionCard.tsx
+│   │   │   ├── QuestionForm.tsx
+│   │   │   ├── OptionList.tsx
+│   │   │   └── QuestionTable.tsx
+│   │   │
+│   │   ├── categories/
+│   │   │   ├── CategoryForm.tsx
+│   │   │   └── CategoryTree.tsx
+│   │   │
+│   │   ├── coding/
+│   │   │   ├── CodeEditor.tsx
+│   │   │   ├── TestCaseForm.tsx
+│   │   │   └── TestCaseTable.tsx
+│   │   │
+│   │   └── assessments/
+│   │       ├── AssessmentForm.tsx
+│   │       └── AssessmentTable.tsx
+│   │
+│   ├── services/
+│   │   ├── api.ts
+│   │   ├── question.service.ts
+│   │   ├── category.service.ts
+│   │   ├── assessment.service.ts
+│   │   └── ai.service.ts
+│   │
+│   ├── hooks/
+│   │   ├── useQuestions.ts
+│   │   ├── useCategories.ts
+│   │   └── useAssessments.ts
+│   │
+│   ├── types/
+│   │   ├── question.ts
+│   │   ├── category.ts
+│   │   ├── assessment.ts
+│   │   └── api.ts
+│   │
+│   ├── utils/
+│   │   ├── constants.ts
+│   │   ├── validators.ts
+│   │   └── helpers.ts
+│   │
+│   └── styles/
+│       └── custom.css
+│
+├── .env.local
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+└── README.md
+

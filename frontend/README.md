@@ -170,14 +170,16 @@ Create:
 
 /categories
 
-Features:
+Question Categories
 
+```text
 Computer Science
+│
 ├── Data Structures
 ├── Operating Systems
-├── AI
-└── DBMS
-
+├── Artificial Intelligence
+└── Database Management System (DBMS)
+```
 Database:
 
 question_category

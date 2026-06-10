@@ -173,7 +173,6 @@ Create:
 Features:
 
 Computer Science
-│
 ├── Data Structures
 ├── Operating Systems
 ├── AI
@@ -236,7 +235,9 @@ Question
 Answer Key
 Explanation
 
-Frontend Modules 
+Frontend Structure
+
+```text
 frontend/
 │
 ├── public/
@@ -258,8 +259,6 @@ frontend/
 │   │   │   ├── page.tsx
 │   │   │   ├── create/
 │   │   │   │   └── page.tsx
-│   │   │   ├── generate/
-│   │   │   │   └── page.tsx
 │   │   │   └── [id]/
 │   │   │       └── page.tsx
 │   │   │
@@ -270,26 +269,22 @@ frontend/
 │   │   │
 │   │   ├── coding-questions/
 │   │   │   ├── page.tsx
-│   │   │   └── generate/
-│   │   │       └── page.tsx
+│   │   │   ├── generate/
+│   │   │   └── [id]/
 │   │   │
 │   │   ├── descriptive-questions/
 │   │   │   ├── page.tsx
 │   │   │   └── generate/
-│   │   │       └── page.tsx
 │   │   │
 │   │   ├── assessments/
 │   │   │   ├── page.tsx
 │   │   │   ├── create/
-│   │   │   │   └── page.tsx
 │   │   │   └── [id]/
-│   │   │       └── page.tsx
 │   │   │
 │   │   └── settings/
 │   │       └── page.tsx
 │   │
 │   ├── components/
-│   │   │
 │   │   ├── common/
 │   │   │   ├── Navbar.tsx
 │   │   │   ├── Sidebar.tsx
@@ -298,53 +293,26 @@ frontend/
 │   │   │   └── Loader.tsx
 │   │   │
 │   │   ├── questions/
-│   │   │   ├── QuestionCard.tsx
-│   │   │   ├── QuestionForm.tsx
-│   │   │   ├── OptionList.tsx
-│   │   │   └── QuestionTable.tsx
-│   │   │
 │   │   ├── categories/
-│   │   │   ├── CategoryForm.tsx
-│   │   │   └── CategoryTree.tsx
-│   │   │
 │   │   ├── coding/
-│   │   │   ├── CodeEditor.tsx
-│   │   │   ├── TestCaseForm.tsx
-│   │   │   └── TestCaseTable.tsx
-│   │   │
 │   │   └── assessments/
-│   │       ├── AssessmentForm.tsx
-│   │       └── AssessmentTable.tsx
 │   │
 │   ├── services/
 │   │   ├── api.ts
+│   │   ├── ai.service.ts
 │   │   ├── question.service.ts
 │   │   ├── category.service.ts
-│   │   ├── assessment.service.ts
-│   │   └── ai.service.ts
+│   │   └── assessment.service.ts
 │   │
 │   ├── hooks/
-│   │   ├── useQuestions.ts
-│   │   ├── useCategories.ts
-│   │   └── useAssessments.ts
-│   │
 │   ├── types/
-│   │   ├── question.ts
-│   │   ├── category.ts
-│   │   ├── assessment.ts
-│   │   └── api.ts
-│   │
 │   ├── utils/
-│   │   ├── constants.ts
-│   │   ├── validators.ts
-│   │   └── helpers.ts
-│   │
-│   └── styles/
-│       └── custom.css
+│   ├── styles/
+│   └── validators/
 │
 ├── .env.local
 ├── package.json
 ├── tsconfig.json
 ├── next.config.ts
 └── README.md
-
+```

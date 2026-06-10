@@ -56,43 +56,54 @@ Benefits
 
 The frontend acts as the bridge between users and AI-powered assessment generation services, making the overall system efficient, accessible, and easy to use.
 
-Project Architecture According to Your Database
+Project Architecture
 
-+---------------------------------------------------+
-|                   Frontend                        |
-|            Next.js 16 + TypeScript                |
-+---------------------------------------------------+
-                      |
-                      |
-                      ▼
-+---------------------------------------------------+
-|                    FastAPI                        |
-|                  Python 3.12                      |
-+---------------------------------------------------+
-                      |
-       --------------------------------
-       |              |              |
-       ▼              ▼              ▼
-+-------------+ +-------------+ +-------------+
-| Question    | | Category    | | Assessment  |
-| Management  | | Management  | | Management  |
-+-------------+ +-------------+ +-------------+
-                      |
-                      ▼
-+---------------------------------------------------+
-|            ChatGPT / Gemini AI Engine             |
-+---------------------------------------------------+
-                      |
-                      ▼
-+---------------------------------------------------+
-|                PostgreSQL 17                      |
-|                                                   |
-| question                                          |
-| question_option                                   |
-| question_category                                 |
-| question_category_mapping                         |
-| question_test_case                                |
-+---------------------------------------------------+
+```text
++--------+
+|  User  |
++--------+
+     |
+     v
++----------------------------------+
+| Frontend                         |
+| Next.js 16 + TypeScript          |
++----------------------------------+
+     |
+     v
++----------------------------------+
+| Backend                          |
+| FastAPI | Python 3.12            |
++----------------------------------+
+     |
+     v
++------------------------------------------------------+
+| Core Modules                                         |
+|------------------------------------------------------|
+| Question Management                                  |
+| Category Management                                  |
+| Assessment Management                                |
+| AI Generation Engine                                 |
++------------------------------------------------------+
+     |
+     +------------------+
+     |                  |
+     v                  v
++----------------+   +----------------+
+| ChatGPT        |   | Gemini AI      |
++----------------+   +----------------+
+     |
+     v
++------------------------------------------------------+
+| PostgreSQL 17                                        |
+|------------------------------------------------------|
+| question                                             |
+| question_option                                      |
+| question_category                                    |
+| question_category_mapping                            |
+| question_test_case                                   |
+| assessment                                           |
++------------------------------------------------------+
+```
 
 Frontend Features Based On Your Database
 1. AI Question Generator

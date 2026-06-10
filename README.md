@@ -28,42 +28,42 @@ Objectives
 * Generate intelligent and context-aware questions.
 * Store and manage question banks efficiently.
 * Provide a scalable solution for educational institutions.
-## System Architecture
+System Architecture
+
+Architecture
 
 ```mermaid
-flowchart LR
+flowchart TD
 
-    A[User]
-    B[Next.js Frontend<br/>TypeScript UI]
-    C[FastAPI Backend<br/>Python 3.12]
-    D[AI Processing Layer<br/>ChatGPT / Gemini]
-    E[PostgreSQL 17]
+    User([User])
 
-    F[Generate MCQ Questions]
-    G[Generate Options]
-    H[Generate Answers]
+    Frontend[Next.js Frontend<br/>TypeScript]
 
-    I[Store Questions]
-    J[Generated MCQs]
-    K[Assessment Creation]
-    L[Question Management]
+    Backend[FastAPI Backend<br/>Python 3.12]
 
-    A --> B
-    B --> C
-    C --> D
-    C --> E
+    AI[AI Services<br/>OpenAI / Gemini]
 
-    D --> F
-    D --> G
-    D --> H
+    DB[(PostgreSQL 17)]
 
-    E --> I
-    E --> J
-    E --> K
-    E --> L
+    MCQ[MCQ Generation]
+    Coding[Coding Question Generation]
+    Assessments[Assessment Management]
+    Categories[Category Management]
+
+    User --> Frontend
+    Frontend --> Backend
+
+    Backend --> AI
+    Backend --> DB
+
+    AI --> MCQ
+    AI --> Coding
+
+    DB --> Assessments
+    DB --> Categories
 ```
 Modules 
-## Project Structure
+Project Structure
 
 ```text
 Generative-AI-for-Automated-Assessment/

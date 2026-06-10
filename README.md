@@ -73,174 +73,65 @@ Objectives
 | & Question Management|
 +----------------------+
 Modules 
+## Project Structure
+
+```text
 Generative-AI-for-Automated-Assessment/
 │
 ├── frontend/
-│   │
 │   ├── public/
 │   │   ├── images/
 │   │   ├── icons/
 │   │   └── logo.png
 │   │
 │   ├── src/
-│   │   │
 │   │   ├── app/
-│   │   │   ├── layout.tsx
-│   │   │   ├── page.tsx
-│   │   │   ├── globals.css
-│   │   │   │
 │   │   │   ├── dashboard/
-│   │   │   │   └── page.tsx
-│   │   │   │
 │   │   │   ├── questions/
-│   │   │   │   ├── page.tsx
-│   │   │   │   ├── create/
-│   │   │   │   │   └── page.tsx
-│   │   │   │   ├── generate/
-│   │   │   │   │   └── page.tsx
-│   │   │   │   └── [id]/
-│   │   │   │       └── page.tsx
-│   │   │   │
-│   │   │   ├── categories/
-│   │   │   │   ├── page.tsx
-│   │   │   │   └── create/
-│   │   │   │       └── page.tsx
-│   │   │   │
 │   │   │   ├── coding/
-│   │   │   │   ├── page.tsx
-│   │   │   │   └── generate/
-│   │   │   │       └── page.tsx
-│   │   │   │
-│   │   │   ├── descriptive/
-│   │   │   │   ├── page.tsx
-│   │   │   │   └── generate/
-│   │   │   │       └── page.tsx
-│   │   │   │
 │   │   │   ├── assessments/
-│   │   │   │   ├── page.tsx
-│   │   │   │   ├── create/
-│   │   │   │   │   └── page.tsx
-│   │   │   │   └── [id]/
-│   │   │   │       └── page.tsx
-│   │   │   │
-│   │   │   └── settings/
-│   │   │       └── page.tsx
+│   │   │   ├── categories/
+│   │   │   ├── settings/
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
 │   │   │
 │   │   ├── components/
-│   │   │   ├── common/
-│   │   │   │   ├── Navbar.tsx
-│   │   │   │   ├── Sidebar.tsx
-│   │   │   │   ├── Footer.tsx
-│   │   │   │   ├── Loader.tsx
-│   │   │   │   └── Button.tsx
-│   │   │   │
-│   │   │   ├── questions/
-│   │   │   │   ├── QuestionForm.tsx
-│   │   │   │   ├── QuestionCard.tsx
-│   │   │   │   ├── QuestionTable.tsx
-│   │   │   │   └── OptionForm.tsx
-│   │   │   │
-│   │   │   ├── categories/
-│   │   │   │   ├── CategoryForm.tsx
-│   │   │   │   └── CategoryTree.tsx
-│   │   │   │
-│   │   │   ├── coding/
-│   │   │   │   ├── CodeEditor.tsx
-│   │   │   │   ├── TestCaseForm.tsx
-│   │   │   │   └── TestCaseTable.tsx
-│   │   │   │
-│   │   │   └── assessments/
-│   │   │       ├── AssessmentForm.tsx
-│   │   │       └── AssessmentTable.tsx
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── Sidebar.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Loader.tsx
+│   │   │   └── Button.tsx
 │   │   │
 │   │   ├── services/
-│   │   │   ├── api.ts
-│   │   │   ├── ai.service.ts
-│   │   │   ├── question.service.ts
-│   │   │   ├── category.service.ts
-│   │   │   └── assessment.service.ts
-│   │   │
 │   │   ├── hooks/
-│   │   │   ├── useQuestions.ts
-│   │   │   ├── useCategories.ts
-│   │   │   └── useAssessments.ts
-│   │   │
 │   │   ├── types/
-│   │   │   ├── question.ts
-│   │   │   ├── category.ts
-│   │   │   ├── assessment.ts
-│   │   │   └── api.ts
-│   │   │
 │   │   └── utils/
-│   │       ├── constants.ts
-│   │       ├── validators.ts
-│   │       └── helpers.ts
 │   │
 │   ├── package.json
 │   ├── tsconfig.json
-│   ├── next.config.ts
-│   ├── .env.local
-│   └── README.md
+│   └── next.config.ts
 │
 ├── backend/
-│   │
 │   ├── app/
-│   │   │
 │   │   ├── api/
 │   │   │   ├── question_routes.py
 │   │   │   ├── category_routes.py
 │   │   │   ├── assessment_routes.py
-│   │   │   ├── ai_routes.py
-│   │   │   └── coding_routes.py
+│   │   │   └── ai_routes.py
 │   │   │
 │   │   ├── services/
 │   │   │   ├── openai_service.py
 │   │   │   ├── gemini_service.py
-│   │   │   ├── question_service.py
-│   │   │   ├── category_service.py
-│   │   │   └── assessment_service.py
+│   │   │   └── question_service.py
 │   │   │
 │   │   ├── models/
-│   │   │   ├── question.py
-│   │   │   ├── question_option.py
-│   │   │   ├── question_category.py
-│   │   │   ├── question_category_mapping.py
-│   │   │   └── question_test_case.py
-│   │   │
 │   │   ├── schemas/
-│   │   │   ├── question_schema.py
-│   │   │   ├── category_schema.py
-│   │   │   ├── option_schema.py
-│   │   │   └── assessment_schema.py
-│   │   │
-│   │   ├── database/
-│   │   │   ├── connection.py
-│   │   │   └── session.py
-│   │   │
-│   │   └── utils/
-│   │       ├── prompt_builder.py
-│   │       ├── validators.py
-│   │       └── helpers.py
+│   │   └── database/
 │   │
-│   ├── main.py
-│   ├── requirements.txt
-│   ├── .env
-│   └── README.md
-│
-├── database/
-│   ├── schema.sql
-│   ├── seed_data.sql
-│   └── migrations/
-│
-├── docs/
-│   ├── architecture.md
-│   ├── api-documentation.md
-│   ├── database-design.md
-│   └── project-report.md
+│   └── main.py
 │
 ├── README.md
-├── .gitignore
-└── docker-compose.yml
+└── .env.local
 
 Project Flow
 
@@ -268,3 +159,4 @@ Generated Questions
 Assessment Papers
 Coding Problems
 Question Bank
+```
